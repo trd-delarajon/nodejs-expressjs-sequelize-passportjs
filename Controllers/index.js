@@ -1,3 +1,3 @@
-exports.index = function(req, res, next) {
+const models = require('../models');exports.index = function(req, res, next) {
   res.render('index', { title: 'Express' });
-}exports.submit_email = function(req, res, next) {  console.log("submit email:", req.body.email);  res.redirect('/');}
+}exports.submit_email = function(req, res, next) {	return models.Lead.create({		email: req.body.email	}).then(lead => {		res.redirect('/');	})}
