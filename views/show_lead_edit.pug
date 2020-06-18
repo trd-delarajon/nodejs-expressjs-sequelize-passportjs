@@ -1,0 +1,7 @@
+extends layout
+
+block content
+  p Edit your details
+  form(action="/lead/edit/" + lead.id, method="POST")
+    input(name="email", type="email", placeholder="Enter your email address", value=lead.email)
+    button(type="submit") Save
