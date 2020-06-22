@@ -6,3 +6,6 @@ block content
     span #{lead.email}
     | 
     a(href="/lead/edit/" + lead.id) Edit Details
+    |
+    form(action="/lead/delete/" + lead.id, method="POST")
+      button(type="submit") Delete Email
