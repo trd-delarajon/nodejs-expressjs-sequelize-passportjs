@@ -36,7 +36,7 @@ html(lang='en')
                   td
                     a(href="/lead/" + lead.id) Detail
                   td
-                    button(onclick=`deleteLead('${lead.id}')`) Delete
+                    button(onclick=`deleteLead('${lead.id}')`).btn.btn-primary Delete
     include Common/footer.pug
     +footer()
     script(src='/public/javascripts/leads.js')
