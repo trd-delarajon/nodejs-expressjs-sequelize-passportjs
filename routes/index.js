@@ -3,11 +3,12 @@ var router = express.Router();
 
 let index = require('../Controllers/index');
 let user = require('../Controllers/user');
+let {isLoggedIn, hasAuth} = require('../middleware/hasAuth.js');
 
 /* GET home page. */
 router.get('/', index.index);
 router.post('/', index.submit_email);
-router.get('/leads', index.show_leads);
+router.get('/leads', hasAuth, index.show_leads);
 router.get('/lead/:lead_id', index.show_lead);
 router.get('/lead/edit/:lead_id', index.show_lead_edit);
 router.post('/lead/edit/:lead_id', index.lead_edit);
