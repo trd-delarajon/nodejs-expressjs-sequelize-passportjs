@@ -11,7 +11,7 @@ module.exports = function(passport){
 		done(null, user.id)
 	});
 	
-	passport.deserializeUser(function(id, done)){
+	passport.deserializeUser(function(id, done){
 		models.User.findOne({
 			where: {
 				'id' : id
@@ -22,7 +22,7 @@ module.exports = function(passport){
 			}
 			done(null, user);
 		})
-	}
+	});
 	
 	passport.use(new LocalStrategy({
 		usernameField: 'email',
